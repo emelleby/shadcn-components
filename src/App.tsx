@@ -7,11 +7,10 @@ function App() {
 	return (
 		<>
 			<div className="p-8">
-				This is the dashboard page and below you see the Report component rendered. That is also available to see at the
-				link above.
+				This is the App page and below you see the Report component rendered. That is also available to see at the link
+				above.
 			</div>
 			<Report />
-			<div>Hello World</div>
 		</>
 	)
 }
