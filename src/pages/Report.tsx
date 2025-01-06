@@ -2,20 +2,19 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ExpenseChart } from "@/components/ExpenseChart"
 import { RecentExpenses } from "@/components/RecentExpenses"
 import { sampleData } from "@/data/sampleData"
-// import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const DateRangeDisplay = () => {
 	// Sort data by date
-	const sortedData = [...sampleData].sort((a, b) => new Date(a.date) - new Date(b.date))
+	const sortedData = [...sampleData].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
 	// Extract the first and last dates
 	const firstDate = new Date(sortedData[0].date)
 	const lastDate = new Date(sortedData[sortedData.length - 1].date)
 
 	// Format the dates to 'DD.MM.YYYY'
-	const formatDate = (date) => `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+	const formatDate = (date: Date): string => `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
 
 	// Construct the date range string
 	const dateRange = `${formatDate(firstDate)} - ${formatDate(lastDate)}`
@@ -24,10 +23,6 @@ const DateRangeDisplay = () => {
 }
 
 export function Report() {
-	// probably no need to set activeTab as a state( onValueChange={setActiveTab} is removed from Tabs)
-	// const [activeTab, setActiveTab] = useState("expenses")
-	// const navigate = useNavigate();
-
 	return (
 		<div className="max-w-7xl mx-auto p-2 sm:p-4 lg:p-8 space-y-8">
 			<h1 className="text-3xl font-bold">Report for Business Trip</h1>
@@ -64,9 +59,6 @@ export function Report() {
 				<Link to="/trip-report/details">
 					<Button>View Details Table</Button>
 				</Link>
-				{/* <Button onClick={() => navigate('/trip-report/details')}>
-          View Details
-        </Button> */}
 			</div>
 		</div>
 	)
