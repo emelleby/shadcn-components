@@ -2,6 +2,7 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
@@ -31,6 +32,9 @@ export function EmissionsDetailSheet() {
       <SheetContent className="sm:max-w-[800px] overflow-y-auto">
         <SheetHeader>
           <SheetTitle>Edit Detail of 2014681.1</SheetTitle>
+          <SheetDescription>
+            Modify emissions data for this transaction
+          </SheetDescription>
         </SheetHeader>
 
         <div className="grid gap-6 py-4">
@@ -96,9 +100,24 @@ export function EmissionsDetailSheet() {
           <div>
             <Tabs defaultValue="scope1">
               <TabsList className="w-full grid grid-cols-3 h-10">
-                <TabsTrigger value="scope1" className="data-[state=active]:bg-sky-500 data-[state=active]:text-white">Scope 1</TabsTrigger>
-                <TabsTrigger value="scope2">Scope 2</TabsTrigger>
-                <TabsTrigger value="scope3">Scope 3</TabsTrigger>
+                <TabsTrigger
+                  value="scope1"
+                  className="data-[state=active]:bg-sky-500 data-[state=active]:text-white"
+                >
+                  Scope 1
+                </TabsTrigger>
+                <TabsTrigger
+                  value="scope2"
+                  className="data-[state=active]:bg-sky-500 data-[state=active]:text-white"
+                >
+                  Scope 2
+                </TabsTrigger>
+                <TabsTrigger
+                  value="scope3"
+                  className="data-[state=active]:bg-sky-500 data-[state=active]:text-white"
+                >
+                  Scope 3
+                </TabsTrigger>
               </TabsList>
 
               <TabsContent value="scope1" className="mt-4">
