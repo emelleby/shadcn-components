@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { TableDemo } from "@/components/Table"
 import {
 	Dialog,
 	DialogContent,
@@ -47,6 +48,7 @@ export function Dialogs() {
 				</Card>
 				<MealsDialog />
 				<RatesDialog />
+				<TableDemo />
 			</div>
 		</div>
 	)
