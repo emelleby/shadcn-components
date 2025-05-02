@@ -1,12 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Briefcase, User } from 'lucide-react';
+import { Briefcase, User, BarChart3 } from 'lucide-react';
+import EmissionsDetailSheet from '@/components/dialogs/EmissionsDetailSheet';
 
 export function Dashboard() {
   return (
     <div className="max-w-7xl mx-auto p-2 md:p-4 lg:p-8">
       <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Link to="/trip-report">
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
@@ -22,7 +23,7 @@ export function Dashboard() {
             </CardContent>
           </Card>
         </Link>
-        
+
         <Link to="/dialogs">
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
@@ -38,6 +39,21 @@ export function Dashboard() {
             </CardContent>
           </Card>
         </Link>
+
+        <Card className="hover:shadow-lg transition-shadow">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <BarChart3 className="h-5 w-5" />
+              Emissions Detail
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4">
+              Edit and manage your emissions data by scope
+            </p>
+            <EmissionsDetailSheet />
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
