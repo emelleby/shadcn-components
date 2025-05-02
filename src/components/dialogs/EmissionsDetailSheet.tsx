@@ -12,6 +12,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChevronDown } from "lucide-react";
 import { TableDemo } from "@/components/Table";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/components/ui/accordion";
 
 export function EmissionsDetailSheet() {
   return (
@@ -95,46 +101,303 @@ export function EmissionsDetailSheet() {
                 <TabsTrigger value="scope3">Scope 3</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="scope1" className="mt-4 space-y-4">
-                <div className="border rounded-md">
-                  <div className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50">
-                    <span className="font-medium">Utslipp fra forbrenning</span>
-                    <ChevronDown className="h-5 w-5" />
-                  </div>
-                </div>
+              <TabsContent value="scope1" className="mt-4">
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="item-1" className="border rounded-md mb-3">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-50">
+                      <span className="font-medium">Utslipp fra forbrenning</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4">
+                      <div className="space-y-4 py-2">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Fuel Type</label>
+                            <select className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm appearance-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                              <option>Natural Gas</option>
+                              <option>Diesel</option>
+                              <option>Gasoline</option>
+                              <option>Coal</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Amount</label>
+                            <div className="flex items-center">
+                              <input
+                                type="number"
+                                className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                placeholder="0.00"
+                              />
+                              <span className="ml-2 text-sm text-gray-500">liters</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <label className="text-sm font-medium mb-1 block">Notes</label>
+                          <input
+                            type="text"
+                            className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                            placeholder="Add notes here"
+                          />
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
 
-                <div className="border rounded-md">
-                  <div className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50">
-                    <span className="font-medium">Utslipp fra kjøretøy</span>
-                    <ChevronDown className="h-5 w-5" />
-                  </div>
-                </div>
+                  <AccordionItem value="item-2" className="border rounded-md mb-3">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-50">
+                      <span className="font-medium">Utslipp fra kjøretøy</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4">
+                      <div className="space-y-4 py-2">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Vehicle Type</label>
+                            <select className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm appearance-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                              <option>Passenger Car</option>
+                              <option>Light Duty Truck</option>
+                              <option>Heavy Duty Truck</option>
+                              <option>Bus</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Distance</label>
+                            <div className="flex items-center">
+                              <input
+                                type="number"
+                                className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                placeholder="0.00"
+                              />
+                              <span className="ml-2 text-sm text-gray-500">km</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
 
-                <div className="border rounded-md">
-                  <div className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50">
-                    <span className="font-medium">Prosess og flyktige utslipp</span>
-                    <ChevronDown className="h-5 w-5" />
-                  </div>
-                </div>
+                  <AccordionItem value="item-3" className="border rounded-md mb-3">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-50">
+                      <span className="font-medium">Prosess og flyktige utslipp</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4">
+                      <div className="space-y-4 py-2">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Process Type</label>
+                            <select className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm appearance-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                              <option>Refrigerant Leakage</option>
+                              <option>Chemical Process</option>
+                              <option>Manufacturing Process</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Emissions Factor</label>
+                            <div className="flex items-center">
+                              <input
+                                type="number"
+                                className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                placeholder="0.00"
+                              />
+                              <span className="ml-2 text-sm text-gray-500">kg CO2e</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
 
-                <div className="border rounded-md">
-                  <div className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50">
-                    <span className="font-medium">Andre scope 1 utslipp</span>
-                    <ChevronDown className="h-5 w-5" />
-                  </div>
-                </div>
+                  <AccordionItem value="item-4" className="border rounded-md">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-50">
+                      <span className="font-medium">Andre scope 1 utslipp</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4">
+                      <div className="space-y-4 py-2">
+                        <div>
+                          <label className="text-sm font-medium mb-1 block">Description</label>
+                          <Textarea
+                            className="min-h-[80px]"
+                            placeholder="Describe other Scope 1 emissions"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-sm font-medium mb-1 block">Emissions Amount</label>
+                          <div className="flex items-center">
+                            <input
+                              type="number"
+                              className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                              placeholder="0.00"
+                            />
+                            <span className="ml-2 text-sm text-gray-500">kg CO2e</span>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </TabsContent>
 
               <TabsContent value="scope2" className="mt-4">
-                <div className="text-center py-8 text-gray-500">
-                  Select Scope 2 to view related emissions
-                </div>
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="item-1" className="border rounded-md mb-3">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-50">
+                      <span className="font-medium">Purchased Electricity</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4">
+                      <div className="space-y-4 py-2">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Source</label>
+                            <select className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm appearance-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                              <option>Grid Electricity</option>
+                              <option>Renewable Energy</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Amount</label>
+                            <div className="flex items-center">
+                              <input
+                                type="number"
+                                className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                placeholder="0.00"
+                              />
+                              <span className="ml-2 text-sm text-gray-500">kWh</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-2" className="border rounded-md">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-50">
+                      <span className="font-medium">Purchased Heat</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4">
+                      <div className="space-y-4 py-2">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Type</label>
+                            <select className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm appearance-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                              <option>District Heating</option>
+                              <option>Steam</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Amount</label>
+                            <div className="flex items-center">
+                              <input
+                                type="number"
+                                className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                placeholder="0.00"
+                              />
+                              <span className="ml-2 text-sm text-gray-500">kWh</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </TabsContent>
 
               <TabsContent value="scope3" className="mt-4">
-                <div className="text-center py-8 text-gray-500">
-                  Select Scope 3 to view related emissions
-                </div>
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="item-1" className="border rounded-md mb-3">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-50">
+                      <span className="font-medium">Business Travel</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4">
+                      <div className="space-y-4 py-2">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Travel Type</label>
+                            <select className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm appearance-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                              <option>Air Travel</option>
+                              <option>Rail Travel</option>
+                              <option>Taxi</option>
+                              <option>Hotel Stay</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Distance/Amount</label>
+                            <div className="flex items-center">
+                              <input
+                                type="number"
+                                className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                placeholder="0.00"
+                              />
+                              <span className="ml-2 text-sm text-gray-500">km/nights</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-2" className="border rounded-md mb-3">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-50">
+                      <span className="font-medium">Purchased Goods & Services</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4">
+                      <div className="space-y-4 py-2">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Category</label>
+                            <select className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm appearance-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                              <option>Raw Materials</option>
+                              <option>Office Supplies</option>
+                              <option>IT Equipment</option>
+                              <option>Professional Services</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Spend Amount</label>
+                            <div className="flex items-center">
+                              <input
+                                type="number"
+                                className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                placeholder="0.00"
+                              />
+                              <span className="ml-2 text-sm text-gray-500">NOK</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-3" className="border rounded-md">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-gray-50">
+                      <span className="font-medium">Waste Generated</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4">
+                      <div className="space-y-4 py-2">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Waste Type</label>
+                            <select className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm appearance-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                              <option>Landfill</option>
+                              <option>Recycled</option>
+                              <option>Composted</option>
+                              <option>Incinerated</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="text-sm font-medium mb-1 block">Weight</label>
+                            <div className="flex items-center">
+                              <input
+                                type="number"
+                                className="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                placeholder="0.00"
+                              />
+                              <span className="ml-2 text-sm text-gray-500">kg</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </TabsContent>
             </Tabs>
           </div>
